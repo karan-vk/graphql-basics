@@ -1,0 +1,81 @@
+import uuidv4 from "uuid/v4";
+const schema = {
+    user: {
+        id: uuidv4(),
+        name: String,
+        email: String,
+        password: HashChangeEvent,
+        mobile: Int16Array,
+        username: String,
+        is_active: Boolean,
+        description: String,
+        profilePic: Media,
+        profileCarousel: [Media],
+        followers: [Users],
+        Posts: [Post],
+        lastLoggedIn: DateTime,
+        status: String,
+        createdAt: DateTime,
+        currentLocation: String,
+    },
+    Post: {
+        id: uuidv4(),
+        title: String,
+        caption: String,
+        type: String,
+        user: User,
+        postMedia: [Media],
+        postHash: [Hash],
+        like: [Like],
+        comment: [Comment],
+        location: String,
+        createdAt: DateTime,
+        tag: [String],
+    },
+    Media: {
+        id: uuidv4(),
+        type: String,
+        uri: URL,
+        user: User,
+        latLong: String,
+    },
+    Hash: {
+        tag: String,
+        category: [String],
+        ranking: Integer,
+    },
+    Like: {
+        id: uuidv4(),
+        createdAt: DateTime,
+        user: User,
+        type: String,
+        postId: Post,
+    },
+    Comment: {
+        id: uuidv4(),
+        userId: User,
+        text: String,
+        comment: [Comment],
+        CLike: [Like],
+    },
+    Story: {
+        id: uuidv4(),
+        user: User,
+        StoryMedia: [Media],
+        createdAt: DateTime,
+    },
+};
+
+const mutation = {
+    // Sathish
+    User: {
+        createUser(name, username, password, email) {},
+        verify(passcode, userId) {},
+        passwordresetsend(userId) {},
+        passwordreset(passcode, newpassword, oldpassword) {},
+        deleteUser(userId, password) {},
+        login(username, password) {},
+        updateLocation() {},
+        updateStatus(status) {},
+    },
+};
