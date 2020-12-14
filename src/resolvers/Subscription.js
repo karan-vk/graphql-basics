@@ -14,7 +14,6 @@ const Subscription = {
 
     comment: {
         subscribe(_, { postId }, { pubsub, db }, info) {
-            console.log(j);
             const post = db.posts.find(
                 (post) => postId === post.id && post.published
             );
